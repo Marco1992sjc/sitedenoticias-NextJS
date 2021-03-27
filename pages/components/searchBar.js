@@ -3,6 +3,7 @@ import { Button, Form } from "semantic-ui-react";
 
 
 
+
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);

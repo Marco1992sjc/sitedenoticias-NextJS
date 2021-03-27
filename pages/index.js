@@ -4,7 +4,7 @@ import ArticleList from "./components/articlesList";
 import SearchBar from "./components/searchBar";
 import { Container, Header, Loader} from "semantic-ui-react";
 
-class App extends React.Component {
+class index extends React.Component {
   state = {
     articles: [],
     searchTopic: "",
@@ -61,4 +61,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default index;
