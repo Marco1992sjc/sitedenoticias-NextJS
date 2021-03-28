@@ -1,5 +1,5 @@
 
-import { Card, Container, Grid, Header, Image, List } from "semantic-ui-react";
+import { Card, Container, Grid, GridColumn, Header, Image, List } from "semantic-ui-react";
 import Modalnewslist from "../components/Modalnewslist"
 
 
@@ -10,30 +10,34 @@ const ArticleItem = props => {
   
   return (
 <div>
-<Modalnewslist a href={article.url}/>
 
-  <List>
-     <Card color='blue' style={{width:"300px",height:"300px", boxShadow: "0px 0px 20px #10bbff"}}>
-         <Card.Content>
+<List style={{padding: "10px"}}>
+  
+    <Grid>
+   <GridColumn>
+     <Card style={{width:"300px",height:"350px", boxShadow: "0px 0px 20px #10bbff"}}>
+        
          <a href={article.url}>
          <Image src={article.urlToImage}  /></a>
           <Card.Header>
-          <Header as="h3" style={{ margin: "8px 0" }}>{article.title}</Header></Card.Header>
-          <Card.Description>
-          <List.Description style={{ margin: "10px 0" }}>
+          <Header as="h3" style={{ margin: "8px 10px" }}>{article.title}</Header></Card.Header>
+          
+          <List.Description textAlign center style={{overflow: "hidden", margin: "1px 10px" }}>
             {article.description}
-          </List.Description></Card.Description>
-          <List bulleted horizontal>
+     </List.Description>
 
+     <Card.Content extra>
+          <List bulleted horizontal>
             <List.Item>
               <a href={article.url}>{article.source.name}</a>
-            </List.Item> 
+            </List.Item>
             <List.Item>{article.publishedAt.split("T")[0]}</List.Item>
           </List>
           </Card.Content>
+         
           </Card>
-        
-          
+       </GridColumn>
+        </Grid>
 </List>
 </div>
     
@@ -42,11 +46,11 @@ const ArticleItem = props => {
 
 const ArticleList = props => {
   return (
-    <List style={{ maxWidth: 600}}>
+    <Grid container columns={4} style={{padding: "20px", maxWidth: 600}}>
       {props.articles.map((article, index) => (
         <ArticleItem article={article} key={article.title + index} />
       ))}
-    </List>
+    </Grid>
   );
 };
 

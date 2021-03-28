@@ -4,6 +4,7 @@ import ArticleList from "./components/articlesList";
 import SearchBar from "./components/searchBar";
 import { Container, Header, Loader} from "semantic-ui-react";
 
+
 class index extends React.Component {
   state = {
     articles: [],
@@ -23,7 +24,7 @@ class index extends React.Component {
         totalResults: response.totalResults
       });
     } catch (error) {
-      this.setState({ apiError: "Could not find any articles" });
+      this.setState({ apiError: "Não foi encontrado nenhuma notícia" });
     }
     this.setState({ loading: false });
   };
@@ -38,7 +39,7 @@ class index extends React.Component {
     } = this.state;
     return (
       <Container>
-        <Header as="h2" style={{ textAlign: "center", margin: 20 }}>
+        <Header as="h2" style={{textAlign: "center", margin: 20 }}>
           Procurar por Artigos
         </Header>
         <SearchBar searchForTopic={this.searchForTopic} />

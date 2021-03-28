@@ -22,8 +22,8 @@ class SearchBar extends React.Component {
       <div style={{ display: "flex", justifyContent: "center" }}>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group>
-            <Form.Input
-              placeholder="Procurar por notícias"
+            <Form.Input required
+              placeholder="Procurar por notícias" 
               name="topic"
               value={this.state.searchTopic}
               onChange={this.handleChange}
