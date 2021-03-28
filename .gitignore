@@ -32,3 +32,7 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+
+#chave da API ocultada
+/components/config.js

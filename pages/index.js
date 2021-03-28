@@ -39,7 +39,7 @@ class index extends React.Component {
     return (
       <Container>
         <Header as="h2" style={{ textAlign: "center", margin: 20 }}>
-          procurar por Artigos
+          Procurar por Artigos
         </Header>
         <SearchBar searchForTopic={this.searchForTopic} />
         <p style={{ textAlign: "center" }}>
@@ -55,7 +55,7 @@ class index extends React.Component {
           </Header>
         )}
         {articles.length > 0 && <ArticleList articles={articles} />}
-        {apiError && <p>Could not fetch any articles. Please try again.</p>}
+        {apiError && <p>Não foi encontrado nenhuma notícia. Por Favor, tente de novo.</p>}
       </Container>
     );
   }

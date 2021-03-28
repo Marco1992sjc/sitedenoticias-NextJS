@@ -2,6 +2,10 @@ import React from 'react'
 import { Button, Header, Icon, Modal } from 'semantic-ui-react'
 
 
+
+
+
+
 function ModalBasic() {
     const [open, setOpen] = React.useState(false)
   

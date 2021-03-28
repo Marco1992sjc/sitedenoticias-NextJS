@@ -1,20 +1,22 @@
 
-import React from "react";
-import { Card, Grid, Header, Image, List } from "semantic-ui-react";
+import { Card, Container, Grid, Header, Image, List } from "semantic-ui-react";
+import Modalnewslist from "../components/Modalnewslist"
+
+
+
+  
 const ArticleItem = props => {
   const { article } = props;
   
   return (
+<div>
+<Modalnewslist a href={article.url}/>
 
-
-    <List >
-     <Grid>
-     <Grid.Column>
-     
-     <Card color='blue' style={{width:"300px",height:"350px", boxShadow: "0px 0px 20px #10bbff"}}>
+  <List>
+     <Card color='blue' style={{width:"300px",height:"300px", boxShadow: "0px 0px 20px #10bbff"}}>
          <Card.Content>
-          <a href={article.url}>
-          <Image src={article.urlToImage}  /></a>
+         <a href={article.url}>
+         <Image src={article.urlToImage}  /></a>
           <Card.Header>
           <Header as="h3" style={{ margin: "8px 0" }}>{article.title}</Header></Card.Header>
           <Card.Description>
@@ -31,13 +33,9 @@ const ArticleItem = props => {
           </Card.Content>
           </Card>
         
-
-
-         </Grid.Column>
-          </Grid>
           
 </List>
-
+</div>
     
   );
 };
@@ -53,6 +51,5 @@ const ArticleList = props => {
 };
 
 export default ArticleList;
-
 
 
