@@ -35,4 +35,5 @@ yarn-error.log*
 
 
 #chave da API ocultada
-/components/config.js
+
+pages/components/config.js
