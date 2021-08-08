@@ -1,0 +1,55 @@
+
+
+
+
+.cardgroup{
+
+    
+    display: block;
+    margin-left: 5.5rem;
+   
+
+
+display: inline-flex;
+
+    padding: 10px;
+    
+
+}
+
+
+.ui .card {
+box-shadow: 0 2px 14px rgb(71, 108, 150);
+border-radius: 5%;
+
+ 
+}
+
+.image{
+    border-radius: 5%;
+    height: 168px;
+    width: 300px;
+
+
+}
+
+.ui .card{
+
+    transition: transform .8s; 
+    
+}
+
+
+.ui .card:hover{
+    transform: transform .4s; 
+    transform: scale(1.10);
+
+
+
+}
+
+
+
+
+
+
