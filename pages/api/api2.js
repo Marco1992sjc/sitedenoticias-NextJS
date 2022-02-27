@@ -1,14 +1,11 @@
-import axios from 'axios';
+import { NEWS_API_KEY } from "../components/config";
 
 
 
-const api2 = axios.create({
-
-  baseURL: 'https://newsapi.org/v2/top-headlines?country=br&language=pt&sortBy=publishedAt&apiKey=27021da241244ac0a7450c9919578a04'
-  
-  
-  });
-  
-  
-  export default api2;
-  
+export const getArticles = async topic => {
+  const response = await fetch(
+    `https://newsapi.org/v2/everything?q=${topic}&sortBy=publishedAt&apiKey=${NEWS_API_KEY}`
+  );
+  const json = await response.json();
+  return json;
+};

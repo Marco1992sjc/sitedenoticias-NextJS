@@ -1,6 +1,6 @@
 import React, { Component}from "react";
-import SearchResults from "./components/SearchResults";
-import useFetch from "react-fetch-hook";
+import SearchBar from "./components/searchBar";
+
 
 import Headlines from "./components/Headlines";
 
@@ -16,8 +16,8 @@ function Index(){
   return(
 
 <>
+<SearchBar />
 
-<SearchResults />
 
 <Headlines />
 

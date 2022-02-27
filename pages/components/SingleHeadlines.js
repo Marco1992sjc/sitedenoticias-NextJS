@@ -5,7 +5,7 @@ import { Card, Container, Grid, GridColumn, Header, Image, List } from "semantic
 const SingleHeadline = ({item}) => (
   
 
-   
+
 <div className="cardgroup">
 
 
