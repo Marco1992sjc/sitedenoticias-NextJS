@@ -1,39 +1,116 @@
 
-.searchbar{
+
+
+.searchbar  {
     display: flex;
+   
     justify-content: center;
     align-items: center;
-   
     margin-top: 3rem;
+    background-color: black;
+
+top: 0;
+z-index: 10;
+width: 100vw;
+height: 80px;
+margin: auto;
+padding: 0 16px;
 
 }
 
-
-
-.row{
-
-    margin-top: 2rem;
-   align-items: center;
-  
-   justify-content: center;
-
- 
-
-}
-
-
-
-
-.cardgroup{
-  
-   
-    margin: 25px;
-  
-display: inline-flex;
-    padding: 15px;
+#search{
     
+text-align: center;
+height: 35px;
+width: 300px;
+
 
 }
+
+.search_results{
+
+align-items: center;
+align-content: center;
+align-self: center;
+
+}
+
+
+.search_results ul {
+
+    animation: myAnim 1s ease 0s 1 normal forwards;
+animation-iteration-count: 1;
+animation-fill-mode: forwards;
+animation-delay: var(--delay);
+}
+
+@keyframes myAnim {
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
+
+
+
+@media only screen and (min-width: 820px) {
+
+ul {
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+   position: relative;
+   left: 30%
+    
+}
+
+li {
+    display: inline-block;
+    vertical-align: top;
+   
+}
+
+
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+
+
+    ul {
+        margin: 0 auto;
+        text-align: center;
+        padding: 20px;
+        position: relative;
+        justify-content:center;
+        align-items:center;
+        display: flex;
+        
+    }
+    
+    li {
+        display: inline-block;
+        vertical-align: top;
+        justify-content:center;
+        align-items:center;
+        display: flex;
+    }
+
+
+
+
+}
+
+
+
 
 
 .ui .card {
@@ -44,7 +121,7 @@ border-radius: 5%;
 }
 
 .image{
-    border-radius: 5%;
+    border-radius: 0 0 5% 5%;
     height: 168px;
     width: 300px;
 

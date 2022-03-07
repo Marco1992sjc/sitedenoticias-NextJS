@@ -1,42 +1,72 @@
 import React from "react";
-import { Button, Form, Container } from "semantic-ui-react";
+import {useState} from 'react'
+import { Button, Form, Container, Segment } from "semantic-ui-react";
+import { NEWS_API_KEY} from "./config";
+import SearchResults from "./SearchResults"
 
 
-class SearchBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { searchTopic: "" };
-  }
 
-  handleChange = event => {
-    this.setState({ searchTopic: event.target.value });
-  };
 
-  handleSubmit = event => {
-    event.preventDefault();
-    this.props.searchForTopic(this.state.searchTopic);
-  };
+export default function SearchBar(){
 
-  render() {
-  
-      return (
-        <div className="searchbar" >
-          <Form onSubmit={this.handleSubmit}>
-            <Form.Group >
-              <Form.Input required  
-                placeholder="Procurar por notícias" 
-                name="topic"
-                value={this.state.searchTopic}
-                onChange={this.handleChange}
-              />
-              <Button basic color='black'>
-                Procurar
-              </Button>
-            </Form.Group>
-          </Form>
-        </div>
-      );
-    }
-  }
-  
-  export default SearchBar;
+const [articles, setArticles] = useState([]);
+
+
+
+
+const handleInputChange = (e) => {
+  e.preventDefault();
+  const { value } = e.target;
+
+  if (!value) return;
+
+  const url = `https://newsapi.org/v2/everything?q=${value}&language=pt&apiKey=${NEWS_API_KEY}`;
+
+fetch(url)
+.then((response) => response.json())
+.then(({articles})=> setArticles(articles));
+
+
+console.log('handleInputChange');
+console.log('Articles', articles);
+
+};
+
+  return(
+
+<>
+
+    <div className="searchbar" >
+   
+    <Form >
+     
+<Form.Input name="search" id="search" onChange={handleInputChange}
+placeholder='Procurar por Notícias'/>
+
+    </Form>
+ 
+
+  </div>
+
+
+
+  <SearchResults articles={articles}/>
+
+
+
+
+</>
+  )
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,7 +19,7 @@ function Index(){
 <SearchBar />
 
 
-<Headlines />
+
 
 
 
