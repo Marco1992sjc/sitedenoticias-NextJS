@@ -40,7 +40,6 @@ align-self: center;
 
     animation: myAnim 1s ease 0s 1 normal forwards;
 animation-iteration-count: 1;
-animation-fill-mode: forwards;
 animation-delay: var(--delay);
 }
 

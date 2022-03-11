@@ -38,10 +38,10 @@ console.log('Articles', articles);
 
     <div className="searchbar" >
    
-    <Form >
+    <Form>
      
 <Form.Input name="search" id="search" onChange={handleInputChange}
-placeholder='Procurar por Notícias'/>
+placeholder='Procurar por Notícias' style={{boxShadow: '0 0 2em green'}}/>
 
     </Form>
  
