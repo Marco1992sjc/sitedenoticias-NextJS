@@ -1,33 +1,20 @@
-import SearchBar from "./components/searchBar";
+import React from "react";
+
+import SearchBar from "./components/SearchBar";
+import { Container, Header, Loader} from "semantic-ui-react";
 
 
-import Headlines from "./components/Headlines";
+export default function() {
 
 
-
-
-
-
-function Index(){
-
-
-  
   return(
 
-<>
 <SearchBar />
 
 
 
 
 
+  )
 
-
-
-</>
-
-
-)
 }
-
-export default Index;

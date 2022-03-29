@@ -1,31 +1,69 @@
+.container {
+    position: fixed;
+    width: 100%;
+    height:80px;
+    z-index: 100;
+}
 
 
-
-.searchbar  {
-    display: flex;
+.container .searchbar  {
    
-    justify-content: center;
-    align-items: center;
-    margin-top: 3rem;
-    background-color: black;
+  margin-left: auto;
+margin-right: auto;
+ display: flex;
+ align-items: center;
+justify-content:center;
+	position: relative;
 
-top: 0;
-z-index: 10;
-width: 100vw;
-height: 80px;
-margin: auto;
-padding: 0 16px;
+	width: 100%;
+    height:80px;
+
+	background: linear-gradient(0deg, #000, #000000);
 
 }
 
 #search{
-    
+  
 text-align: center;
 height: 35px;
 width: 300px;
 
 
 }
+
+.searchbar:before, .searchbar:after {
+	content: '';
+	position: absolute;
+	left: -2px;
+	top: -2px;
+	background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, 
+		#0000ff, #00ff00,#ffff00, #ff0000);
+	background-size: 400%;
+	width: calc(100% + 4px);
+	height: calc(100% + 1px);
+	z-index: -1;
+	animation: steam 20s linear infinite;
+}
+
+@keyframes steam {
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 400% 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+
+.searchbar:after {
+	filter: blur(10px);
+}
+
+
+
+
 
 .search_results{
 
@@ -36,20 +74,21 @@ align-self: center;
 }
 
 
-.search_results ul {
-
+ .search_results ul {
+position: relative;
+top: 100px;
     animation: myAnim 1s ease 0s 1 normal forwards;
-animation-iteration-count: 1;
 animation-delay: var(--delay);
+z-index: 10;
 }
 
 @keyframes myAnim {
     0% {
-      opacity: 0;
+      transform: scaleX(0);
     }
   
     100% {
-      opacity: 1;
+      transform: scaleX(1);
     }
   }
 
@@ -62,7 +101,8 @@ ul {
     text-align: center;
     padding: 20px;
    position: relative;
-   left: 30%
+   left: 30%;
+  
     
 }
 
@@ -109,16 +149,6 @@ li {
 }
 
 
-
-
-
-.ui .card {
-box-shadow: 0 2px 14px rgb(71, 108, 150);
-border-radius: 5%;
-
- 
-}
-
 .image{
     border-radius: 0 0 5% 5%;
     height: 168px;
@@ -127,18 +157,20 @@ border-radius: 5%;
 
 }
 
-.ui .card{
 
+ul .card{
+    box-shadow: 0 2px 14px rgb(71, 108, 150);
+    border-radius: 5%;
     transition: transform .8s; 
-    
+    border: 10px;
 }
 
 
-.ui .card:hover{
+ul .card:hover{
     transform: transform .4s; 
     transform: scale(1.10);
-
-
+    box-shadow: 0 2px 14px rgb(71, 108, 150);
+    
 
 }
 
