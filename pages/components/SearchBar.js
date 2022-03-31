@@ -1,8 +1,8 @@
 import React from "react";
-import { useState, useRef } from "react";
-import { Button, Form, Icon, Message } from "semantic-ui-react";
-import { NEWS_API_KEY } from "./config";
-import SearchResults from "./SearchResults";
+import { useState } from "react";
+import { Form } from "semantic-ui-react";
+import { NEWS_API_KEY } from "../components/config";
+import SearchResults from "../components/SearchResults";
 
 export default function SearchBar() {
   const [articles, setArticles] = useState("");
