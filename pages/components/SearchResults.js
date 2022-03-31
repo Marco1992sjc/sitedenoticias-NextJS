@@ -13,6 +13,7 @@ import {
 } from "semantic-ui-react";
 
 
+
 export default function SearchResults({ articles }) {
 
   if (!articles || !articles.length) return null;

@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { Form } from "semantic-ui-react";
-import { NEWS_API_KEY } from "../components/config";
 import SearchResults from "../components/SearchResults";
 
 export default function SearchBar() {
@@ -15,7 +14,9 @@ export default function SearchBar() {
       setArticles([]);
       return;
     }
-    const url = `https://newsapi.org/v2/everything?q=${value}&language=pt&sortBy=popularity&pageSize=40&apiKey=${NEWS_API_KEY}`;
+
+    const API_KEY = process.env.NEXT_PUBLIC_API_KEY
+    const url = `https://newsapi.org/v2/everything?q=${value}&language=pt&sortBy=popularity&pageSize=40&apiKey=${API_KEY}`;
     fetch(url)
     .then( async response => {
       if (!response.ok) {
@@ -30,7 +31,7 @@ export default function SearchBar() {
     .catch( error => {
       (error.message)
       console.log(error.message);
-      alert("Você fez muitas solicitações recentemente. As contas de desenvolvedor estão limitadas a 100 solicitações em um período de 24 horas (50 solicitações disponíveis a cada 12 horas). Atualize para um plano pago se precisar de mais solicitações.");
+      alert(error.message);
      
     })
   
