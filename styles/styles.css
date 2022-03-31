@@ -1,29 +1,37 @@
+#msg{
+  width:400px;
+  margin-right:auto;
+  margin-left:auto;
+}
+
+
+
 .container {
-    position: fixed;
-    width: 100%;
-    height:80px;
-    z-index: 100;
+  position: fixed;
+  width: 100%;
+  height:80px;
+  z-index: 100;
 }
 
 
 .container .searchbar  {
-   
-  margin-left: auto;
+ 
+margin-left: auto;
 margin-right: auto;
- display: flex;
- align-items: center;
+display: flex;
+align-items: center;
 justify-content:center;
-	position: relative;
+position: relative;
 
-	width: 100%;
-    height:80px;
+width: 100%;
+  height:80px;
 
-	background: linear-gradient(0deg, #000, #000000);
+background: linear-gradient(0deg, #000, #000000);
 
 }
 
 #search{
-  
+
 text-align: center;
 height: 35px;
 width: 300px;
@@ -32,150 +40,149 @@ width: 300px;
 }
 
 .searchbar:before, .searchbar:after {
-	content: '';
-	position: absolute;
-	left: -2px;
-	top: -2px;
-	background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, 
-		#0000ff, #00ff00,#ffff00, #ff0000);
-	background-size: 400%;
-	width: calc(100% + 4px);
-	height: calc(100% + 1px);
-	z-index: -1;
-	animation: steam 20s linear infinite;
+content: '';
+position: absolute;
+left: -2px;
+top: -2px;
+background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, 
+  #0000ff, #00ff00,#ffff00, #ff0000);
+background-size: 400%;
+width: calc(100% + 4px);
+height: calc(100% + 1px);
+z-index: -1;
+animation: steam 20s linear infinite;
 }
 
 @keyframes steam {
-	0% {
-		background-position: 0 0;
-	}
-	50% {
-		background-position: 400% 0;
-	}
-	100% {
-		background-position: 0 0;
-	}
+0% {
+  background-position: 0 0;
+}
+50% {
+  background-position: 400% 0;
+}
+100% {
+  background-position: 0 0;
+}
 }
 
 .searchbar:after {
-	filter: blur(10px);
+filter: blur(10px);
 }
 
-
-
-
-
-.search_results{
-
-align-items: center;
-align-content: center;
-align-self: center;
-
+.search_results {
+  align-items: center;
+  align-content: center;
+  align-self: center;
 }
 
-
- .search_results ul {
-position: relative;
-top: 100px;
-    animation: myAnim 1s ease 0s 1 normal forwards;
-animation-delay: var(--delay);
-z-index: 10;
+.search_results ul {
+  position: relative;
+  top: 100px;
+  animation: myAnim 1s ease 0s 1 normal forwards;
+  animation-delay: var(--delay);
+  z-index: 10;
 }
 
 @keyframes myAnim {
-    0% {
-      transform: scaleX(0);
-    }
-  
-    100% {
-      transform: scaleX(1);
-    }
+  0% {
+    transform: scaleX(0);
+  }
+
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@media only screen and (min-width: 820px) {
+  ul {
+    display: inline-block;
+  vertical-align: top;
+  }
+
+
+  li {
+    list-style: none;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  ul {
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    display: flex;
   }
 
 
 
-@media only screen and (min-width: 820px) {
 
-ul {
-    margin: 0 auto;
-    text-align: center;
-    padding: 20px;
-   position: relative;
-   left: 30%;
-  
-    
-}
 
-li {
+  li {
     display: inline-block;
     vertical-align: top;
-   
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+}
+
+.image {
+  object-fit: cover;
+  height: 168px;
+  width: 300px;
 }
 
 
-}
-
-
-
-
-
-
-
-@media only screen and (max-width: 768px) {
-
-
-    ul {
-        margin: 0 auto;
-        text-align: center;
-        padding: 20px;
-        position: relative;
-        justify-content:center;
-        align-items:center;
-        display: flex;
-        
-    }
-    
-    li {
-        display: inline-block;
-        vertical-align: top;
-        justify-content:center;
-        align-items:center;
-        display: flex;
-    }
-
-
-
+li{
+  transition: transform 0.8s;
 
 }
 
 
-.image{
-    border-radius: 0 0 5% 5%;
-    height: 168px;
-    width: 300px;
+li:hover {
 
-
+  transform: scale(1.1);
+ 
 }
 
-
-ul .card{
-    box-shadow: 0 2px 14px rgb(71, 108, 150);
-    border-radius: 5%;
-    transition: transform .8s; 
-    border: 10px;
+.card {
+  width: 300px;
+  height: 350px;
 }
 
+.modal{
 
-ul .card:hover{
-    transform: transform .4s; 
-    transform: scale(1.10);
-    box-shadow: 0 2px 14px rgb(71, 108, 150);
-    
 
+  animation: modalin 1s ease 0s 1 normal forwards;
 }
 
 
 
 
+@keyframes modalin {
+  0% {
+    transform: scale(0);
+  }
 
+  100% {
+    transform: scale(1);
+  }
+}
 
+@keyframes modalexit {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
