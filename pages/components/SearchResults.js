@@ -4,35 +4,38 @@ import React, {
   forwardRef,
   useState,
 } from "react";
-import {
-  Card,
-  Header,
-  Image,
-  List,
-  Modal
-} from "semantic-ui-react";
-
-
+import { Card, Header, Image, List, Modal } from "semantic-ui-react";
+//import ArtcilesModal from '../components/Modal'
 
 export default function SearchResults({ articles }) {
+  
+
+
 
   if (!articles || !articles.length) return null;
-
-  const resultList = articles.map((item,idx) => {
+  const resultList = articles.map((item, idx) => {
     
     const delay = `${idx + 2}00ms`;
-    const [open, setOpen] = React.useState(false);
-    const ArticlesModal = forwardRef((props, ref) => {
-    
-      useImperativeHandle(ref, () => ({}));
-       
+
+    const ArtcilesModal = forwardRef((props, ref) => {
+      
+      const [open, setOpen] = useState(false);
+      useImperativeHandle(ref, () => ({
+        open: () => setOpen(true),
+      }));
+
+      console.log("Modal Renderizado!!!!");
+
+      if (!setOpen) return null;
+
       return (
-        <Modal className="modal"
+        <Modal
+          
+          className="modal"
           closeIcon
           open={open}
           onClose={() => setOpen(false)}
           onOpen={() => setOpen(true)}
-          
         >
           <Header icon="newspaper outline" content="Notícia" />
 
@@ -77,16 +80,19 @@ export default function SearchResults({ articles }) {
       );
     });
 
-  
-
+    const modalRef = useRef(false);
+    const handleOpenModal = () => {
+      modalRef.current.open();
+    };
     return (
       <ul key={item.source.id} style={{ "--delay": delay }}>
         <li className="column">
-         
-            <ArticlesModal ref={childRef} />
-         
+          <ArtcilesModal ref={modalRef} />
 
-          <Card classname="card" color="green" onClick={() => setOpen(true)}>
+          <Card 
+          classname="card" 
+          color="green" 
+          onClick={handleOpenModal}>
             <Image src={item.urlToImage} />
             <Card.Header>
               <Header
@@ -110,8 +116,8 @@ export default function SearchResults({ articles }) {
             </List.Description>
 
             <Card.Content extra>
-              <List  horizontal >
-                <List.Item >
+              <List horizontal>
+                <List.Item>
                   <a href={item.url}>{item.source.name}</a>
                 </List.Item>
                 <List.Item>{item.publishedAt.split("T")[0]}</List.Item>
@@ -122,6 +128,6 @@ export default function SearchResults({ articles }) {
       </ul>
     );
   });
-  const childRef = useRef();
+
   return <div className="search_results">{resultList}</div>;
 }
