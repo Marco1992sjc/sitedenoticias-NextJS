@@ -5,11 +5,12 @@ import React, {
   useState
 } from "react";
 import { Card, Header, Image, List, Modal } from "semantic-ui-react";
-import ArtcilesModal from '../components/Modal'
 
 export default function SearchResults ({ articles }) {
   
-
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalData, setModalData] = useState(null);
+  const onClose = () => setModalIsOpen(undefined);
 
 
   if (!articles || !articles.length) return null;
@@ -18,21 +19,21 @@ export default function SearchResults ({ articles }) {
     const delay = `${idx + 2}00ms`;
 
     
-    
-      console.log("modal");
-    const modalRef = useRef(false);
-    const handleOpenModal = () => {
-      modalRef.current.openModal();
-    };
+   
     return (
-      <ul key={item.source.id} style={{ "--delay": delay }}>
+      <><ul key={item.source.id} style={{ "--delay": delay }}>
         <li className="column">
-          <ArtcilesModal ref={modalRef} />
 
-          <Card 
-          classname="card" 
-          color="green" 
-          onClick={handleOpenModal}>
+          <Card
+            classname="card"
+            color="green"
+
+            onClick={()=> {
+                setModalData(item);
+                setModalIsOpen(true);
+              }}
+            
+          >
             <Image src={item.urlToImage} />
             <Card.Header>
               <Header
@@ -64,8 +65,68 @@ export default function SearchResults ({ articles }) {
               </List>
             </Card.Content>
           </Card>
+          
         </li>
       </ul>
+
+      {modalIsOpen && (
+      <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}
+        className="modal"
+        closeIcon
+        open={modalIsOpen}
+        onClose={() => setModalIsOpen(false)}
+        onOpen={() => setModalIsOpen(true)}
+        onEsc={onClose}
+
+      >
+          <Header icon="newspaper outline" content="Notícia" />
+
+          <Modal.Content>
+            <Image
+              src={modalData.urlToImage}
+              fluid
+              rounded
+              centered
+              size="xlarge"
+              image />
+
+            <List>
+              <Header
+                textAlign="center"
+                as="h3"
+                style={{ maxHeight: "9ch", margin: "0px 10px" }}
+              >
+                {modalData.title}
+              </Header>
+
+              <List.Description
+                textAlign="center"
+                style={{ overflow: "visible", margin: "1px 10px" }}
+              >
+                {item.content}
+              </List.Description>
+            </List>
+
+            <List horizontal>
+              <List.Item>
+                <a target="blank" rel="noopener" href={modalData.url}>
+                  {modalData.source.name}
+                </a>
+              </List.Item>
+              <List.Item>{modalData.publishedAt.split("T")[0]}</List.Item>
+            </List>
+          </Modal.Content>
+          <Modal.Actions></Modal.Actions>
+
+        </Modal>
+      
+      
+        )}
+      
+      
+      </>
+
+
     );
   });
 
