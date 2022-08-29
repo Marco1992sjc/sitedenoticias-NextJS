@@ -1,7 +1,4 @@
 import React, {
-  useImperativeHandle,
-  useRef,
-  forwardRef,
   useState
 } from "react";
 import { Card, Header, Image, List, Modal } from "semantic-ui-react";
