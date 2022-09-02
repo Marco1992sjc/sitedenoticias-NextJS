@@ -108,7 +108,7 @@ export default function SearchResults({ articles }) {
         )}
       </>
     );
-  });
+
 
   return (
     <div className="search_results">
